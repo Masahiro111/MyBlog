@@ -1,243 +1,401 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tailwind Blog Template</title>
-        <meta name="author" content="David Grzyb">
-        <meta name="description" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />
 
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        <!-- Facebook and Twitter integration -->
+        <meta property="og:title" content="" />
+        <meta property="og:image" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
 
-            .font-family-karla {
-                font-family: karla;
-            }
-        </style>
+        <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 
-        <!-- Tailwind -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <!-- AlpineJS -->
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <!-- Font Awesome -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/animate.css') }}">
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/icomoon.css') }}">
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/bootstrap.css') }}">
+
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/magnific-popup.css') }}">
+
+        <!-- Flexslider  -->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/flexslider.css') }}">
+
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('blog_template/css/owl.theme.default.min.css') }}">
+
+        <!-- Flaticons  -->
+        <link rel="stylesheet" href="{{  asset('blog_template/fonts/flaticon/font/flaticon.css') }}">
+
+        <!-- Theme style  -->
+        <link rel="stylesheet" href="{{ asset('blog_template/css/style.css') }}">
+
+        <!-- Modernizr JS -->
+        <script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+        <!-- FOR IE9 below -->
+        <!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
     </head>
 
-    <body class="bg-white font-family-karla">
+    <body>
 
-        <!-- Top Bar Nav -->
-        <nav class="w-full py-4 bg-blue-800 shadow">
-            <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
-                <nav>
-                    <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
-                        <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Shop</a></li>
-                        <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>
+        <div id="page">
+            <nav class="colorlib-nav" role="navigation">
+
+                <div class="top-menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div id="colorlib-logo"><a href="index.html">Blog</a></div>
+                            </div>
+                            <div class="col-md-10 text-right menu-1">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="has-dropdown">
+                                        <a href="courses.html">Categories</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Programming</a></li>
+                                            <li><a href="#">Games</a></li>
+                                            <li><a href="#">Soft Skills</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li class="btn-cta"><a href="#"><span>Sign in</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <aside id="colorlib-hero">
+                <div class="flexslider">
+                    <ul class="slides">
+
                     </ul>
-                </nav>
-
-                <div class="flex items-center text-lg no-underline text-white pr-6">
-                    <a class="" href="#">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a class="pl-6" href="#">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="pl-6" href="#">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="pl-6" href="#">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
                 </div>
-            </div>
-
-        </nav>
-
-        <!-- Text Header -->
-        <header class="w-full container mx-auto">
-            <div class="flex flex-col items-center py-12">
-                <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="#">
-                    Minimal Blog
-                </a>
-                <p class="text-lg text-gray-600">
-                    Lorem Ipsum Dolor Sit Amet
-                </p>
-            </div>
-        </header>
-
-        <!-- Topic Nav -->
-        <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
-            <div class="block sm:hidden">
-                <a
-                   href="#"
-                   class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-                   @click="open = !open">
-                    Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
-                </a>
-            </div>
-            <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-                <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Technology</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Automotive</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Finance</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Politics</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Culture</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Sports</a>
-                </div>
-            </div>
-        </nav>
-
-
-        <div class="container mx-auto flex flex-wrap py-6">
-
-            <!-- Posts Section -->
-            <section class="w-full md:w-2/3 flex flex-col items-center px-3">
-
-                <article class="flex flex-col shadow my-4">
-                    <!-- Article Image -->
-                    <a href="#" class="hover:opacity-75">
-                        <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
-                    </a>
-                    <div class="bg-white flex flex-col justify-start p-6">
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Technology</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</a>
-                        <p href="#" class="text-sm pb-3">
-                            By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on April 25th, 2020
-                        </p>
-                        <a href="#" class="pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna..</a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="flex flex-col shadow my-4">
-                    <!-- Article Image -->
-                    <a href="#" class="hover:opacity-75">
-                        <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=2">
-                    </a>
-                    <div class="bg-white flex flex-col justify-start p-6">
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Automotive, Finance</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</a>
-                        <p href="#" class="text-sm pb-3">
-                            By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on January 12th, 2020
-                        </p>
-                        <a href="#" class="pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna..</a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article class="flex flex-col shadow my-4">
-                    <!-- Article Image -->
-                    <a href="#" class="hover:opacity-75">
-                        <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=3">
-                    </a>
-                    <div class="bg-white flex flex-col justify-start p-6">
-                        <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">Sports</a>
-                        <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4">Lorem Ipsum Dolor Sit Amet Dolor Sit Amet</a>
-                        <p href="#" class="text-sm pb-3">
-                            By <a href="#" class="font-semibold hover:text-gray-800">David Grzyb</a>, Published on October 22nd, 2019
-                        </p>
-                        <a href="#" class="pb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis porta dui. Ut eu iaculis massa. Sed ornare ligula lacus, quis iaculis dui porta volutpat. In sit amet posuere magna..</a>
-                        <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Pagination -->
-                <div class="flex items-center py-8">
-                    <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
-                    <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
-                    <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
-
-            </section>
-
-            <!-- Sidebar Section -->
-            <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
-
-                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                    <p class="text-xl font-semibold pb-5">About Us</p>
-                    <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
-                    <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
-                        Get to know us
-                    </a>
-                </div>
-
-                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                    <p class="text-xl font-semibold pb-5">Instagram</p>
-                    <div class="grid grid-cols-3 gap-3">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=1">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=2">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=3">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=4">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=5">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=6">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=7">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
-                        <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9">
-                    </div>
-                    <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6">
-                        <i class="fab fa-instagram mr-2"></i> Follow @dgrzyb
-                    </a>
-                </div>
-
             </aside>
 
+            <div class="colorlib-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="block-21 d-flex animate-box">
+                                <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-1.jpg);"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                    <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="block-21 d-flex animate-box">
+                                <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-2.jpg);"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                    <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="block-21 d-flex animate-box">
+                                <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-3.jpg);"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                    <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="block-21 d-flex animate-box">
+                                <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-4.jpg);"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                    <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="block-21 d-flex animate-box">
+                                <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-5.jpg);"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                    <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="block-21 d-flex animate-box">
+                                <a href="#" class="blog-img" style="background-image: url(blog_template/images/blog-6.jpg);"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                    <p>ven the all-powerful Pointing has no control about the blind texts it is an almost</p>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> May 29, 2018</a></div>
+                                        <div><a href="#"><span class="icon-user2"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SIDEBAR: start -->
+                        <div class="col-md-4 animate-box">
+                            <div class="sidebar">
+                                <div class="side">
+                                    <h3 class="sidebar-heading">Categories</h3>
+                                    <div class="block-24">
+                                        <ul>
+                                            <li><a href="#">Education <span>10</span></a></li>
+                                            <li><a href="#">Courses <span>43</span></a></li>
+                                            <li><a href="#">Fashion <span>21</span></a></li>
+                                            <li><a href="#">Business <span>65</span></a></li>
+                                            <li><a href="#">Marketing <span>34</span></a></li>
+                                            <li><a href="#">Travel <span>45</span></a></li>
+                                            <li><a href="#">Video <span>22</span></a></li>
+                                            <li><a href="#">Audio <span>13</span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="side">
+                                    <h3 class="sidebar-heading">Recent Blog</h3>
+                                    <div class="f-blog">
+                                        <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-1.jpg);">
+                                        </a>
+                                        <div class="desc">
+                                            <p class="admin"><span>18 April 2018</span></p>
+                                            <h2><a href="blog.html">Creating Mobile Apps</a></h2>
+                                            <p>Far far away, behind the word mountains</p>
+                                        </div>
+                                    </div>
+                                    <div class="f-blog">
+                                        <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-2.jpg);">
+                                        </a>
+                                        <div class="desc">
+                                            <p class="admin"><span>18 April 2018</span></p>
+                                            <h2><a href="blog.html">Creating Mobile Apps</a></h2>
+                                            <p>Far far away, behind the word mountains</p>
+                                        </div>
+                                    </div>
+                                    <div class="f-blog">
+                                        <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-3.jpg);">
+                                        </a>
+                                        <div class="desc">
+                                            <p class="admin"><span>18 April 2018</span></p>
+                                            <h2><a href="blog.html">Creating Mobile Apps</a></h2>
+                                            <p>Far far away, behind the word mountains</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="side">
+                                    <h3 class="sidbar-heading">Tags</h3>
+                                    <div class="block-26">
+                                        <ul>
+                                            <li><a href="#">code</a></li>
+                                            <li><a href="#">design</a></li>
+                                            <li><a href="#">typography</a></li>
+                                            <li><a href="#">development</a></li>
+                                            <li><a href="#">creative</a></li>
+                                            <li><a href="#">codehack</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="colorlib-subscribe" class="subs-img" style="background-image: url(blog_template/images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+                            <h2>Subscribe Newsletter</h2>
+                            <p>Subscribe our newsletter and get latest update</p>
+                        </div>
+                    </div>
+                    <div class="row animate-box">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form-inline qbstp-header-subscribe">
+                                        <div class="col-three-forth">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                                            </div>
+                                        </div>
+                                        <div class="col-one-third">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Subscribe Now</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer id="colorlib-footer">
+                <div class="container">
+                    <div class="row row-pb-md">
+                        <div class="col-md-3 colorlib-widget">
+                            <h4>Contact Info</h4>
+                            <ul class="colorlib-footer-links">
+                                <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+                                <li><a href="tel://1234567920"><i class="icon-phone"></i> + 1235 2355 98</a></li>
+                                <li><a href="mailto:info@yoursite.com"><i class="icon-envelope"></i> info@yoursite.com</a></li>
+                                <li><a href="http://luxehotel.com"><i class="icon-location4"></i> yourwebsite.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 colorlib-widget">
+                            <h4>Programs</h4>
+                            <p>
+                            <ul class="colorlib-footer-links">
+                                <li><a href="#"><i class="icon-check"></i> Diploma Degree</a></li>
+                                <li><a href="#"><i class="icon-check"></i> BS Degree</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Beginner</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Intermediate</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Advance</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Difficulty</a></li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="col-md-2 colorlib-widget">
+                            <h4>Useful Links</h4>
+                            <p>
+                            <ul class="colorlib-footer-links">
+                                <li><a href="#"><i class="icon-check"></i> About Us</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Testimonials</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Courses</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Event</a></li>
+                                <li><a href="#"><i class="icon-check"></i> News</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Contact</a></li>
+                            </ul>
+                            </p>
+                        </div>
+
+                        <div class="col-md-2 colorlib-widget">
+                            <h4>Support</h4>
+                            <p>
+                            <ul class="colorlib-footer-links">
+                                <li><a href="#"><i class="icon-check"></i> Documentation</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Forums</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Help &amp; Support</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Scholarship</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Student Transport</a></li>
+                                <li><a href="#"><i class="icon-check"></i> Release Status</a></li>
+                            </ul>
+                            </p>
+                        </div>
+
+                        <div class="col-md-3 colorlib-widget">
+                            <h4>Recent Post</h4>
+                            <div class="f-blog">
+                                <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-1.jpg);">
+                                </a>
+                                <div class="desc">
+                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
+                                    <p class="admin"><span>18 April 2018</span></p>
+                                </div>
+                            </div>
+                            <div class="f-blog">
+                                <a href="blog.html" class="blog-img" style="background-image: url(blog_template/images/blog-2.jpg);">
+                                </a>
+                                <div class="desc">
+                                    <h2><a href="blog.html">Creating Mobile Apps</a></h2>
+                                    <p class="admin"><span>18 April 2018</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copy">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>
+                                    <small class="block">&copy;
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                        Copyright &copy;<script>
+                                            document.write(new Date().getFullYear());
+                                        </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    </small><br>
+                                    <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a></small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
 
-        <footer class="w-full border-t bg-white pb-12">
-            <div
-                 class="relative w-full flex items-center invisible md:visible md:pb-12"
-                 x-data="getCarouselData()">
-                <button
-                        class="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
-                        x-on:click="decrement()">
-                    &#8592;
-                </button>
-                <template x-for="image in images.slice(currentIndex, currentIndex + 6)" :key="images.indexOf(image)">
-                    <img class="w-1/6 hover:opacity-75" :src="image">
-                </template>
-                <button
-                        class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
-                        x-on:click="increment()">
-                    &#8594;
-                </button>
-            </div>
-            <div class="w-full container mx-auto flex flex-col items-center">
-                <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-                    <a href="#" class="uppercase px-3">About Us</a>
-                    <a href="#" class="uppercase px-3">Privacy Policy</a>
-                    <a href="#" class="uppercase px-3">Terms & Conditions</a>
-                    <a href="#" class="uppercase px-3">Contact Us</a>
-                </div>
-                <div class="uppercase pb-6">&copy; myblog.com</div>
-            </div>
-        </footer>
+        <div class="gototop js-top">
+            <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+        </div>
 
-        <script>
-            function getCarouselData() {
-            return {
-                currentIndex: 0,
-                images: [
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=1',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=2',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=3',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=4',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=5',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=6',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=7',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=8',
-                    'https://source.unsplash.com/collection/1346951/800x800?sig=9',
-                ],
-                increment() {
-                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
-                },
-                decrement() {
-                    this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex - 1;
-                },
-            }
-        }
-        </script>
+        <!-- jQuery -->
+        <script src="{{ asset('blog_template/js/jquery.min.js') }}"></script>
+        <!-- jQuery Easing -->
+        <script src="{{ asset('blog_template/js/jquery.easing.1.3.js') }}"></script>
+        <!-- Bootstrap -->
+        <script src="{{ asset('blog_template/js/bootstrap.min.js') }}"></script>
+        <!-- Waypoints -->
+        <script src="{{ asset('blog_template/js/jquery.waypoints.min.js') }}"></script>
+        <!-- Stellar Parallax -->
+        <script src="{{ asset('blog_template/js/jquery.stellar.min.js') }}"></script>
+        <!-- Flexslider -->
+        <script src="{{ asset('blog_template/js/jquery.flexslider-min.js') }}"></script>
+        <!-- Owl carousel -->
+        <script src="{{ asset('blog_template/js/owl.carousel.min.js') }}"></script>
+        <!-- Magnific Popup -->
+        <script src="{{ asset('blog_template/js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('blog_template/js/magnific-popup-options.js') }}"></script>
+        <!-- Counters -->
+        <script src="{{ asset('blog_template/js/jquery.countTo.js') }}"></script>
+        <!-- Main -->
+        <script src="{{ asset('blog_template/js/main.js') }}"></script>
 
     </body>
 
