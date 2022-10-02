@@ -23,4 +23,9 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
