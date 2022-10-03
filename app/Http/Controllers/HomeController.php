@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $posts = Post::query()
             ->withCount('comments')
-            ->get();
+            ->paginate(5);
 
         $recent_posts = Post::query()
             ->latest()

@@ -22,6 +22,8 @@
                     </div>
                 </div>
                 @endforeach
+
+                {{ $posts->links() }}
             </div>
 
             <!-- SIDEBAR: start -->
