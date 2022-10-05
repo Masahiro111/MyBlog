@@ -36,6 +36,7 @@ class PostController extends Controller
 
     public function addComment(Post $post, Request $request)
     {
+
         $validated = $request->validate([
             'the_comment' => ['required', 'min:10', 'max:300'],
         ]);
