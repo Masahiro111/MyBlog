@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Category;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -29,11 +28,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'author',
         ]);
 
-        $category = Category::query()->create([
-            'name' => 'Education',
-            'slug' => 'education',
-        ]);
-
         $user = $role->users()->create([
             'name' => 'admin',
             'email' => 'admin@example.com',
@@ -46,7 +40,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'This is slug',
             'excerpt' => 'This is excerpt',
             'body' => 'This is content',
-            'category_id' => 1,
         ]);
     }
 }
