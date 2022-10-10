@@ -54,8 +54,6 @@
                     <div class="row animate-box">
                         <div class="col-md-12">
 
-                            <x-blog.message :status="'success'" />
-
                             <h2 class="colorlib-heading-2">Say something</h2>
                             @auth
                             <form method="POST" action="{{ route('posts.add_comment', $post) }}">
