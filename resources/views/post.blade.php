@@ -35,7 +35,7 @@
                         <div id="comment_{{ $comment->id }}" class="review">
                             <div
                                  class="user-img"
-                                 style="background-image: ">
+                                 style="background-image: url({{ $comment->user->image ? asset('storage/' . $comment->user->image->path) }} )">
                                 <div class=" desc">
                                     <h4>
                                         <span class="text-left">{{ $comment->user->name }}</span>
