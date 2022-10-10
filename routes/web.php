@@ -34,7 +34,7 @@ Route::get('/about', AboutController::class)->name('about');
 Route::get('/contact', [ContactController::class, 'create'])
     ->name('contact.create');
 
-Route::post('/contact', [ContactController::class, 'store'])
++Route::post('/contact', [ContactController::class, 'store'])
     ->name('contact.store');
 
 // Route::get('/dashboard', function () {
