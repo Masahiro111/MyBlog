@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -25,15 +23,6 @@ class ContactController extends Controller
         ]);
 
         Contact::query()->create($validated);
-
-        Mail::to("admin@example.com")
-            ->send(new ContactMail(
-                $validated['first_name'],
-                $validated['last_name'],
-                $validated['email'],
-                $validated['subject'],
-                $validated['message']
-            ));
 
         return redirect()->route('contact.create')
             ->with('success', 'Your message has been sent');
