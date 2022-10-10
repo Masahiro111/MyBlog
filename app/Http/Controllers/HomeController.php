@@ -13,11 +13,6 @@ class HomeController extends Controller
             ->withCount('comments')
             ->get();
 
-        $recent_posts = Post::query()
-            ->latest()
-            ->take(5)
-            ->get();
-
-        return view('home', compact('posts', 'recent_posts'));
+        return view('home', compact('posts'));
     }
 }

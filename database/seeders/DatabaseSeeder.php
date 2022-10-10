@@ -71,22 +71,10 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
         ]);
 
-        // $post->image()->create([
-        //     'name' => 'random file',
-        //     'extension' => 'jpg',
-        //     'path' => '/image/random_file.jpg',
-        // ]);
-
         $post->image()->create([
-            'name' => 'post_file',
+            'name' => 'random file',
             'extension' => 'jpg',
-            'path' => 'images/' . rand(0, 10) . '.jpg',
-        ]);
-
-        $user->image()->create([
-            'name' => 'user_file',
-            'extension' => 'jpg',
-            'path' => 'images/' . rand(0, 10) .  '.jpg',
+            'path' => '/image/random_file.jpg',
         ]);
 
         // タグと記事のリレーション設定
